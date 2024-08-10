@@ -9,10 +9,10 @@ def main():
     budget = 2000
 
     # Get user input to get the expense
-    # expense = get_user_expense()
+    expense = get_user_expense()
 
     # then write it into a cvs file
-    # save_expense_to_file(expense, expense_file_path)
+    save_expense_to_file(expense, expense_file_path)
 
     #  read file and summarize expenses
     summarize_expense(expense_file_path, budget)
@@ -95,9 +95,10 @@ def summarize_expense(expense_file_path, budget):
     print(f"Remaining days in the current month: {remaining_days}")
 
     daily_budget = remaining_budget/remaining_days
-    print(f"Budget Per day: {daily_budget:.2f}")
+    print(green(f"Budget Per day: {daily_budget:.2f}"))
 
-
+def green(text):
+    return f"\033[32m{text}\033[0m"
 
 if __name__ == "__main__":
     main()
